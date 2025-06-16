@@ -1,0 +1,42 @@
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  annotations_path: "data/annotations"
+  train_split: 0.7
+  val_split: 0.1
+  test_split: 0.2
+
+preprocessing:
+  image_size: [640, 640]
+  normalize: true
+  enhance_contrast: true
+  gaussian_sigma: 0.5
+
+model:
+  architecture: "resnet50"
+  num_classes: 5
+  pretrained: true
+  dropout: 0.5
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  save_best_only: true
+
+classes:
+  - "pliers"
+  - "gun"
+  - "wrench"
+  - "knife"
+  - "scissors"
+
+device: "cuda"
+seed: 42
+
+paths:
+  model_save: "models/trained"
+  checkpoints: "models/checkpoints"
+  results: "results"
